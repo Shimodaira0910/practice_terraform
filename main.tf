@@ -10,6 +10,12 @@ terraform {
       version = "~> 5.0"
     }
   }
+  backend "s3" {
+    bucket  = "tastylog-tfstate-bucket-shimodaira"
+    key     = "tastylog-dev.tfstate"
+    region  = "ap-northeast-1"
+    profile = "terraform-shimodaira"
+  }
 }
 
 # -----------------------
