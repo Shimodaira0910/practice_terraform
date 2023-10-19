@@ -41,3 +41,7 @@ variable "enviroment" {
 variable "domain" {
   type = string
 }
+
+variable "hostZoneId" {
+  type = string
+}

@@ -2,19 +2,19 @@
 # Route53
 # -----------------------
 
-resource "aws_route53_zone" "route53_zone" {
-  name          = var.domain
-  force_destroy = false
+# resource "aws_route53_zone" "route53_zone" {
+#   name          = var.domain
+#   force_destroy = false
 
-  tags = {
-    Name    = "${var.project}-${var.enviroment}-domain"
-    project = var.project
-    Env     = var.enviroment
-  }
-}
+#   tags = {
+#     Name    = "${var.project}-${var.enviroment}-domain"
+#     project = var.project
+#     Env     = var.enviroment
+#   }
+# }
 
 resource "aws_route53_record" "route53_record" {
-  zone_id = aws_route53_zone.route53_zone.id
+  zone_id = var.hostZoneId
   name    = "dev-elb.${var.domain}"
   type    = "A"
 
